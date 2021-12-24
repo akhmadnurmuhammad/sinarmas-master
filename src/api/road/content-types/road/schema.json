@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "roads",
+  "info": {
+    "singularName": "road",
+    "pluralName": "roads",
+    "displayName": "Road"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Distance": {
+      "type": "float"
+    },
+    "TravelTime": {
+      "type": "integer"
+    },
+    "IsActive": {
+      "type": "boolean",
+      "default": false
+    },
+    "DeletedAt": {
+      "type": "datetime"
+    },
+    "FromLocation": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::location.location",
+      "inversedBy": "roads"
+    },
+    "ToLocation": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::location.location",
+      "inversedBy": "roads"
+    }
+  }
+}

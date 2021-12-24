@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "locations",
+  "info": {
+    "singularName": "location",
+    "pluralName": "locations",
+    "displayName": "location"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "minLength": 3
+    },
+    "PortLocation": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "WeightingLocation": {
+      "type": "string"
+    },
+    "IsActive": {
+      "type": "boolean",
+      "default": false
+    },
+    "Latitude": {
+      "type": "float",
+      "default": 0
+    },
+    "Longitude": {
+      "type": "float",
+      "default": 0,
+      "required": false
+    },
+    "Address": {
+      "type": "richtext"
+    },
+    "DeletedAt": {
+      "type": "datetime"
+    },
+    "roads": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::road.road",
+      "inversedBy": "ToLocation"
+    }
+  }
+}
